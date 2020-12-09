@@ -4,9 +4,8 @@
 
 var
     babel = require('gulp-babel'),
-    uglify = require('gulp-uglify'),
-    pump = require('pump'),
-    fs = require('fs'),
+    uglify = require('gulp-uglify-es').default,
+    minifyJS = require('gulp-minify'),
     debug = require('gulp-debug'),
     program = require('commander'),
     util = require('gulp-util'),
@@ -46,7 +45,7 @@ program
             .pipe(debug({
                 title: 'commader-gulp-scripts:'
             }))
-            .pipe(uglify().on('error', console.error))
+            .pipe(uglify())
             
             .on('error', function (error) {
                 // tenemos un error 

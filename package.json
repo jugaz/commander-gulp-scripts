@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-scripts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compilación de javascripts dinámicamente",
   "main": "./bin/scripts.js",
   "author": "Jesús Antonio Ugaz Vegas",
@@ -20,11 +20,10 @@
     "graceful-fs": "^4.2.4",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.8",
-    "pump": "^3.0.0"
+    "gulp-minify": "^3.1.0",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-util": "^3.0.8"
   },
   "scripts": {
     "deploy": "npm run scripts",

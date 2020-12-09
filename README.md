@@ -12,30 +12,20 @@
 ## Installation
 
 ```bash
-$ npm install commander-gulp-images
+$ npm install commander-gulp-scripts
 ```
 
 
 #### Command to Compile
 
 ```bash
-$ commander-gulp-images images 'entry' --im 'ouput' 
-```
-
-```bash
-$ commander-gulp-images webp 'entry' --wb 'ouput' 
-```
-
-```bash
-$ commander-gulp-images svg 'entry' --sv 'ouput' 
+$ commander-gulp-scripts scripts 'entry' --scr 'ouput' 
 ```
 
 #### Example
 
 ```bash
 "scripts": { 
-    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
-    "webp": "commander-gulp-images webp \"docs/images/**/*.png\" \"docs/images/**/*.jpg\" --wb \"docs/images\"",
-    "svg": "commander-gulp-images svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\"",
+    "scripts": "commander-gulp-scripts scripts \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts\""
   }
 ```
