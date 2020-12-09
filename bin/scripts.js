@@ -47,7 +47,7 @@ program
                 title: 'commader-gulp-scripts:'
             }))
             
-            
+            .pipe(babel())
             .on('error', function (error) {
                 // tenemos un error 
                 util.log("Error Name:", error.name);
