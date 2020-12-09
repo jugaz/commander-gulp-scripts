@@ -4,10 +4,11 @@
 
 var
     babel = require('gulp-babel'),
-    uglify = require('gulp-uglify-es').default,
-    minifyJS = require('gulp-minify'),
     debug = require('gulp-debug'),
+    entorno,
+    minifyJS = require('gulp-minify'),
     program = require('commander'),
+    uglify = require('gulp-uglify-es').default,
     util = require('gulp-util'),
     { src, dest, series, parallel } = require("gulp");
 
@@ -45,7 +46,7 @@ program
             .pipe(debug({
                 title: 'commader-gulp-scripts:'
             }))
-            .pipe(uglify())
+            
             
             .on('error', function (error) {
                 // tenemos un error 
@@ -58,6 +59,7 @@ program
 
 
             })
+            .pipe( entorno ? uglify({compress:{drop_console: true}}) : util.noop() )
             
             .pipe(dest(ouput))
             .on('end', function () {

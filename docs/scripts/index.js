@@ -1,1 +1,2 @@
-console.log("Hola"),require("./modules/a.js");
+console.log("Hola")
+require("./modules/a.js");
