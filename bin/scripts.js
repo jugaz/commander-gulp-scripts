@@ -33,26 +33,19 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.scr;
-        
-      
-        
-       
+    
         input = input.filter(function (index, value) {
-            console.log(index)
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "js") {
+            if(index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
 
         });
-        
-
  
         return src(input, { allowEmpty: true })
         
             .pipe(debug({
                 title: 'commader-gulp-scripts:'
             }))
-            .pipe(babel())
             .pipe(uglify().on('error', console.error))
             
             .on('error', function (error) {
