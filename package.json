@@ -1,0 +1,53 @@
+{
+  "name": "commander-gulp-scripts",
+  "version": "1.0.0",
+  "description": "Compilación de javascripts dinámicamente",
+  "main": "./bin/scripts.js",
+  "author": "Jesús Antonio Ugaz Vegas",
+  "email": "jesusugazv@gmail.com",
+  "license": "MIT",
+  "bin": {
+    "commander-gulp-scrips": "bin/scripts.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/runtime": "^7.12.5",
+    "chalk": "^4.1.0",
+    "commander": "^3.0.2",
+    "figlet": "^1.5.0",
+    "fs": "0.0.1-security",
+    "graceful-fs": "^4.2.4",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "pump": "^3.0.0"
+  },
+  "scripts": {
+    "deploy": "npm run scripts",
+    "scripts": "node ./bin/scripts.js scripts \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts\"",
+    "predeploy": "rm -rdf \"docs/\" && mkdir -p \"docs/\"",
+    "preinstall": "node bin/pre-cli-scripts.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "scripts",
+    "js",
+    "gulp",
+    "commander-gulp-scripts",
+    "commander"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jugaz/commander-gulp-scripts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jugaz/commander-gulp-scripts/issues"
+  },
+  "homepage": "https://github.com/jugaz/commander-gulp-scripts#readme"
+}
