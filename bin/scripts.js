@@ -5,10 +5,11 @@
 var
     babel = require('gulp-babel'),
     debug = require('gulp-debug'),
+    plumber = require('gulp-plumber'),
+  
     entorno,
-    minifyJS = require('gulp-minify'),
     program = require('commander'),
-    uglify = require('gulp-uglify-es').default,
+    uglify = require('gulp-uglify'),
     util = require('gulp-util'),
     { src, dest, series, parallel } = require("gulp");
 
@@ -22,7 +23,7 @@ var options = {};
 program
 
     .version(
-        'commander-gulp-images version: ' + require('../package.json').version + '\n'
+        'commander-gulp-scripts version: ' + require('../package.json').version + '\n'
     )
 
 /* ######################## COMMANDER IMAGES ######################## */
@@ -46,8 +47,11 @@ program
             .pipe(debug({
                 title: 'commader-gulp-scripts:'
             }))
-            
-            .pipe(babel())
+            .pipe(plumber())
+            // Transpile the JS code using Babel's preset-env.
+            /*.pipe(babel({
+                presets: [['@babel/preset-env']]
+            }))*/
             .on('error', function (error) {
                 // tenemos un error 
                 util.log("Error Name:", error.name);
@@ -59,8 +63,7 @@ program
 
 
             })
-            .pipe( entorno ? uglify({compress:{drop_console: true}}) : util.noop() )
-            
+ 
             .pipe(dest(ouput))
             .on('end', function () {
                 util.log('Done!');
