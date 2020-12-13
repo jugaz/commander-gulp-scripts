@@ -6,8 +6,10 @@ var
     babel = require('gulp-babel'),
     debug = require('gulp-debug'),
     plumber = require('gulp-plumber'),
-  
     entorno,
+    minimify = require('gulp-minify'),
+    named = require('vinyl-named'),
+    webpack = require('webpack-stream'),
     program = require('commander'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
@@ -22,9 +24,9 @@ var options = {};
 /* ######################## VERSION ######################## */
 program
 
-    .version(
+    /*.version(
         'commander-gulp-scripts version: ' + require('../package.json').version + '\n'
-    )
+    )*/
 
 /* ######################## COMMANDER IMAGES ######################## */
 /*  node ./bin/images.js images 'test/scripts/*.js' 'test/scripts/*.jpg' --im 'build/scripts'*/
@@ -47,8 +49,10 @@ program
             .pipe(debug({
                 title: 'commader-gulp-scripts:'
             }))
-            .pipe(plumber())
+            .pipe(named())
             // Transpile the JS code using Babel's preset-env.
+            /*.pipe(plumber())*/
+            pipe(webpack())
             /*.pipe(babel({
                 presets: [['@babel/preset-env']]
             }))*/
@@ -63,7 +67,14 @@ program
 
 
             })
- 
+           .pipe(uglify())
+            /*.pipe(minimify({
+                ext:{
+                    min:'.js'
+                },
+                noSource: true
+            }))*/
+
             .pipe(dest(ouput))
             .on('end', function () {
                 util.log('Done!');

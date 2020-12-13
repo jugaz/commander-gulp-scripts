@@ -1,5 +1,1 @@
-class Foo {
-  log(msg) {
-    console.log(msg)
-  }
-}
+console.log("Suma")
