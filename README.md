@@ -22,10 +22,16 @@ $ npm install commander-gulp-scripts
 $ commander-gulp-scripts scripts 'entry' --scr 'ouput' 
 ```
 
+
+```bash
+$ commander-gulp-scripts prod:scripts 'entry' --scr 'ouput' 
+```
+
 #### Example
 
 ```bash
 "scripts": { 
     "scripts": "commander-gulp-scripts scripts \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts\""
+    "prod:scripts": "commander-gulp-scripts prod:scripts \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts\""
   }
 ```

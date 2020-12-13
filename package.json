@@ -20,6 +20,7 @@
     "graceful-fs": "^4.2.4",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
+    "gulp-beautify": "^3.0.0",
     "gulp-debug": "^4.0.0",
     "gulp-minify": "^3.1.0",
     "gulp-plumber": "^1.2.1",
@@ -30,7 +31,8 @@
   },
   "scripts": {
     "deploy": "npm run scripts",
-    "scripts": "node ./bin/scripts.js scripts \"frontend/src/static/scripts/*.js\" --scr \"docs/scripts\""
+    "scripts": "node ./bin/scripts.js scripts \"frontend/src/static/scripts/*.js\" --scr \"docs/scripts\"",
+    "prod:scripts": "node ./bin/scripts.js prod:scripts \"frontend/src/static/scripts/*.js\" --scr \"docs/scripts\""
   },
   "directories": {
     "doc": "docs"
