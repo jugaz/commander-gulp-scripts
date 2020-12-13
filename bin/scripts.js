@@ -50,12 +50,12 @@ program
                 title: 'commader-gulp-scripts:'
             }))
             .pipe(named())
-            // Transpile the JS code using Babel's preset-env.
-            /*.pipe(plumber())*/
-            pipe(webpack())
-            /*.pipe(babel({
+            
+            .pipe(plumber())
+            .pipe(webpack())
+            .pipe(babel({
                 presets: [['@babel/preset-env']]
-            }))*/
+            }))
             .on('error', function (error) {
                 // tenemos un error 
                 util.log("Error Name:", error.name);
@@ -67,13 +67,8 @@ program
 
 
             })
-           .pipe(uglify())
-            /*.pipe(minimify({
-                ext:{
-                    min:'.js'
-                },
-                noSource: true
-            }))*/
+           
+            .pipe(minimify())
 
             .pipe(dest(ouput))
             .on('end', function () {
