@@ -89,7 +89,7 @@ program
         return src(input, { allowEmpty: true })
         
             .pipe(debug({
-                title: 'commader-gulp-scripts:production:'
+                title: 'commader-gulp-scripts production:'
             }))
             .pipe(named())
             
