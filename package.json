@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-scripts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Compilación de javascripts dinámicamente",
   "main": "./bin/scripts.js",
   "author": "Jesús Antonio Ugaz Vegas",
@@ -30,10 +30,7 @@
     "webpack-stream": "^6.1.1"
   },
   "scripts": {
-    "deploy": "npm run scripts",
-    "preinstall": "node ./bin/pre-cli-scripts.js",
-    "scripts": "node ./bin/scripts.js scripts \"frontend/src/static/scripts/*.js\" --scr \"docs/scripts\"",
-    "prod:scripts": "node ./bin/scripts.js prod:scripts \"frontend/src/static/scripts/*.js\" --scr \"docs/scripts\""
+    "preinstall": "node ./bin/pre-cli-scripts.js"
   },
   "directories": {
     "doc": "docs"

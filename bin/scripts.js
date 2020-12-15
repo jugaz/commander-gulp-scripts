@@ -4,14 +4,14 @@
 
 var
     babel = require('gulp-babel'),
-    debug = require('gulp-debug'),
-    plumber = require('gulp-plumber'),
-    named = require('vinyl-named'),
-    minify = require('gulp-minify'),
     beautify = require('gulp-beautify'),
-    webpack = require('webpack-stream'),
+    debug = require('gulp-debug'),
+    minify = require('gulp-minify'),
+    named = require('vinyl-named'),
+    plumber = require('gulp-plumber'),
     program = require('commander'),
     util = require('gulp-util'),
+    webpack = require('webpack-stream'),
     { src, dest, series, parallel } = require("gulp");
 
 
@@ -61,8 +61,6 @@ program
                 util.log("Error Line:", error.line);
                 util.log("Error Column:", error.column);
                 util.log("Error Msg", error.Msg);
-
-
             })
             .pipe(beautify({ indent_size: 2 }))
             .pipe(dest(ouput))
@@ -83,16 +81,13 @@ program
             if(index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
-
         });
  
         return src(input, { allowEmpty: true })
-        
             .pipe(debug({
                 title: 'commader-gulp-scripts production:'
             }))
             .pipe(named())
-            
             .pipe(plumber())
             .pipe(webpack())
             .pipe(babel({
@@ -117,7 +112,6 @@ program
             .on('end', function () {
                 util.log('Done!');
             });
-
     })
 
 program.parse(process.argv);
