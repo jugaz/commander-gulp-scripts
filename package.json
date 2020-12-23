@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-scripts",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Compilación de javascripts dinámicamente",
   "main": "./bin/scripts.js",
   "author": "Jesús Antonio Ugaz Vegas",
@@ -26,6 +26,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
+    "path": "^0.12.7",
     "vinyl-named": "^1.1.0",
     "webpack-stream": "^6.1.1"
   },

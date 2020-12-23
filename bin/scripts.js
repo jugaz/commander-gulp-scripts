@@ -11,6 +11,7 @@ var
     plumber = require('gulp-plumber'),
     program = require('commander'),
     util = require('gulp-util'),
+    path = require('path'),
     webpack = require('webpack-stream'),
     { src, dest, series, parallel } = require("gulp");
 
@@ -28,7 +29,7 @@ program
     )
 
 /* ######################## COMMANDER SCRIPTS ######################## */
-/*  node ./bin/images.js images 'test/scripts/*.js' 'test/scripts/*.jpg' --im 'build/scripts'*/
+/*  node ./bin/scripts.js scripts 'test/scripts/*.js' 'test/scripts/*.jpg' --scr 'build/scripts'*/
 
 
 program
@@ -39,7 +40,7 @@ program
         var ouput = options.ouput || options.scr;
     
         input = input.filter(function (index, value) {
-            if(index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
+            if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
 
@@ -51,7 +52,9 @@ program
             }))
             .pipe(named())
             .pipe(plumber())
-            .pipe(webpack())
+            .pipe(webpack({
+                watch: true
+            }))
 
             .on('error', function (error) {
                 // tenemos un error 
@@ -78,7 +81,7 @@ program
         var ouput = options.ouput || options.scr;
     
         input = input.filter(function (index, value) {
-            if(index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
+            if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
         });
@@ -89,7 +92,9 @@ program
             }))
             .pipe(named())
             .pipe(plumber())
-            .pipe(webpack())
+            .pipe(webpack({
+                watch: false
+            }))
             .pipe(babel({
                 presets: [['@babel/preset-env']]
             }))
