@@ -1,4 +1,5 @@
 # Commander Gulp Scripts Dynamic
+<style>.markdown-body pre code {cursor:auto}</style>
 
 <p>Compilación de javascripts dinámicamente</p>
  
@@ -34,7 +35,9 @@ $ commander-gulp-scripts prod:scripts 'entry' --scr 'ouput'
 
 ```bash
 "scripts": {
-    "scripts": "commander-gulp-scripts scripts \"frontend/src/static/scripts/*.js\" \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts\"",
-    "prod:scripts": "commander-gulp-scripts prod:scripts \"frontend/src/static/scripts/*.js\" \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts\""
+    "scripts": "commander-gulp-scripts scripts \"frontend/src/static/scripts/*.js\" \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts/\"",
+    "prod:scripts": "commander-gulp-scripts prod:scripts \"frontend/src/static/scripts/*.js\" \"frontend/src/static/scripts/**/*.js\" --scr \"docs/scripts/\""
   }
 ```
+### Link
+https://jugaz.github.io/commander-gulp-scripts/

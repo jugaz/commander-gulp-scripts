@@ -38,12 +38,17 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.scr;
-    
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.js'")
+        }
         input = input.filter(function (index, value) {
             if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
-
+            else if(path.extname(index) != ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
+                return error()
+            }
         });
         return src(input, { allowEmpty: true })
         
@@ -79,10 +84,17 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.scr;
-    
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.js'")
+        }
         input = input.filter(function (index, value) {
             if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
+            }
+
+            else if(path.extname(index) != ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
+                return error()
             }
         });
  
