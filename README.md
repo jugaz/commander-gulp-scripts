@@ -1,5 +1,4 @@
 # Commander Gulp Scripts Dynamic
-<style>.markdown-body pre code {cursor:auto}</style>
 
 <p>Compilación de javascripts dinámicamente</p>
  
