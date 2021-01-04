@@ -38,43 +38,45 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.scr;
-        function error(){
-            util.log("ERROR: No es extisión válida")
-            util.log("ERROR: La extisión válida debe ser: '.js'")
-        }
+
         input = input.filter(function (index, value) {
             if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
-            else if(path.extname(index) != ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
-                return error()
-            }
         });
-        return src(input, { allowEmpty: true })
-        
-            .pipe(debug({
-                title: 'commader-gulp-scripts:'
-            }))
-            .pipe(named())
-            .pipe(plumber())
-            .pipe(webpack({
-                watch: true
-            }))
 
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);
-            })
-            .pipe(beautify({ indent_size: 2 }))
-            .pipe(dest(ouput))
-            .on('end', function () {
-                util.log('Done!');
-            });
+        if(input.length === 0 || input === "undefine" ||  (path.extname(index) !== ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js")) {
+            return util.log("Error: No existe el archivo con el siguiente formato: '.js'")
+        }
+        
+        else {
+            return src(input, { allowEmpty: true })
+                .pipe(debug({
+                    title: 'commader-gulp-scripts:'
+                }))
+                .pipe(named())
+                .pipe(plumber())
+                .pipe(webpack({
+                    watch: true
+                }))
+
+                .on('error', function (error) {
+                    // tenemos un error 
+                    util.log("Error Name:", error.name);
+                    util.log("Error Code:", error.code);
+                    util.log("Error Filename:", error.filename);
+                    util.log("Error Line:", error.line);
+                    util.log("Error Column:", error.column);
+                    util.log("Error Msg", error.Msg);
+                })
+                .pipe(beautify({ indent_size: 2 }))
+                .pipe(dest(ouput))
+                .on('end', function () {
+                    util.log('Done!');
+                });
+        }
+        
+       
 
     })
 
@@ -84,51 +86,51 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.scr;
-        function error(){
-            util.log("ERROR: No es extisión válida")
-            util.log("ERROR: La extisión válida debe ser: '.js'")
-        }
+   
         input = input.filter(function (index, value) {
             if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
-
-            else if(path.extname(index) != ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
-                return error()
-            }
         });
- 
-        return src(input, { allowEmpty: true })
-            .pipe(debug({
-                title: 'commader-gulp-scripts production:'
-            }))
-            .pipe(named())
-            .pipe(plumber())
-            .pipe(webpack({
-                watch: false
-            }))
-            .pipe(babel({
-                presets: [['@babel/preset-env']]
-            }))
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);
-            })
-             .pipe(minify({
-                ext:{
-                    min:'.js'
-                },
-                noSource: true
-            }))
-            .pipe(dest(ouput))
-            .on('end', function () {
-                util.log('Done!');
-            });
+
+        if(input.length === 0 || input === "undefine" ||  (path.extname(index) !== ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js")) {
+            return util.log("Error: No existe el archivo con el siguiente formato: '.js'")
+        }
+
+        else {
+            return src(input, { allowEmpty: true })
+                .pipe(debug({
+                    title: 'commader-gulp-scripts production:'
+                }))
+                .pipe(named())
+                .pipe(plumber())
+                .pipe(webpack({
+                    watch: false
+                }))
+                .pipe(babel({
+                    presets: [['@babel/preset-env']]
+                }))
+                .on('error', function (error) {
+                    // tenemos un error 
+                    util.log("Error Name:", error.name);
+                    util.log("Error Code:", error.code);
+                    util.log("Error Filename:", error.filename);
+                    util.log("Error Line:", error.line);
+                    util.log("Error Column:", error.column);
+                    util.log("Error Msg", error.Msg);
+                })
+                .pipe(minify({
+                    ext:{
+                        min:'.js'
+                    },
+                    noSource: true
+                }))
+                .pipe(dest(ouput))
+                .on('end', function () {
+                    util.log('Done!');
+                });
+        }
+       
     })
 
 program.parse(process.argv);
