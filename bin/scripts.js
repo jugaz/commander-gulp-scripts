@@ -40,13 +40,12 @@ program
         var ouput = options.ouput || options.scr;
 
         input = input.filter(function (index, value) {
-            if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
+            if(path.extname(index) == ".js" && index !== "/home/jugaz/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
         });
-
-        if(input.length === 0 || input === "undefine" ||  (path.extname(index) !== ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js")) {
-            return util.log("Error: No existe el archivo con el siguiente formato: '.js'")
+        if(input.length === 0 || input === "undefine") {
+            return util.log("ERROR: No existe el archivo con el siguiente formato: '.js'")
         }
         
         else {
@@ -88,13 +87,13 @@ program
         var ouput = options.ouput || options.scr;
    
         input = input.filter(function (index, value) {
-            if(path.extname(index) == ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
+            if(path.extname(index) == ".js" && index !== "/home/jugaz/Developer/.Github/commander-gulp-scripts/bin/scripts.js"){
                 return index;
             }
         });
 
-        if(input.length === 0 || input === "undefine" ||  (path.extname(index) !== ".js" && index !== "/home/jugaz/Escritorio/Developer/.Github/commander-gulp-scripts/bin/scripts.js")) {
-            return util.log("Error: No existe el archivo con el siguiente formato: '.js'")
+        if(input.length === 0 || input === "undefine") {
+            return util.log("ERROR: No existe el archivo con el siguiente formato: '.js'")
         }
 
         else {
