@@ -29,7 +29,7 @@ program
     )
 
 /* ######################## COMMANDER SCRIPTS ######################## */
-/*  node ./bin/scripts.js scripts 'test/scripts/*.js' 'test/scripts/*.jpg' --scr 'build/scripts'*/
+/*  node ./bin/scripts.js scripts 'test/*.js' --scr 'build/scripts'*/
 
 
 program
