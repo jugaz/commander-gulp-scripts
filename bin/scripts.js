@@ -56,7 +56,7 @@ program
                 .pipe(named())
                 .pipe(plumber())
                 .pipe(webpack({
-                    watch: true
+                    watch: false
                 }))
 
                 .on('error', function (error) {
